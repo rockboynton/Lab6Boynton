@@ -4,7 +4,7 @@
  *  Created on: Jan 19, 2019
  *      Author: Rock Boynton
  * 
- * Implements functions specified in temp_sensor.h to use the MSOE dev board temperature sensor
+ * Implements functions specified in speaker.h to use the MSOE dev board piezo speaker
  */
 
 #include <inttypes.h>
@@ -17,7 +17,7 @@
 
 static volatile GPIO* GPIOB = 0x40020400;
 
-void temp_init() {
+void speaker_init() {
     // Enable GPIOB in RCC_AHB1ENR
 	*(RCC_AHB1ENR) |= (1 << GPIOBEN);
     // Enable TIM3 in RCC_APB1ENR
@@ -33,6 +33,4 @@ void temp_init() {
     // Enable output in TIM3_CCER
 	
     // Enable counter in TIM3_CR1
-
-
 }
