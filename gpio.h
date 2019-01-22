@@ -33,11 +33,17 @@
 
 #define RCC_AHB1ENR (volatile uint32_t*) 0x40023830
 #define RCC_APB2ENR (volatile uint32_t*) 0x40023844
+#define RCC_APB1ENR (volatile uint32_t*) 0x40023840
 #define GPIOAEN 0		// GPIOA Enable is bit 0 in RCC_APB1LPENR
 #define GPIOBEN 1
 #define GPIOCEN 2
 #define ADC1EN  8
+#define TIM3_EN 1
 
+#define INPUT 0
+#define OUTPUT 1
+#define ALETERNATE_FUNCTION 2
+#define ANALOG 3
 
 typedef struct {
 	uint32_t MODER;
