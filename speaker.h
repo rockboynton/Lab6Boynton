@@ -16,10 +16,19 @@
  */
 void speaker_init();
 
+void play_tone(Tone * tone);
+
 typedef struct {
-	float NOTE;
-    uint8_t DURATION;
-} TONE;
+	float note;
+    uint8_t duration;
+} Tone;
+
+typedef struct {
+    uint32_t CR1;
+    uint32_t CR2;
+    SMCR;
+    DIER; // TODO
+} TIMER;
 
 
 // The following defines are from this instructable: 
@@ -34,7 +43,7 @@ typedef struct {
 #define	Gb0	(float) 23.12
 #define	G0	(float) 24.50
 #define	Ab0	(float) 25.96
-#define	LA0	(float) 27.50
+#define	A0	(float) 27.50
 #define	Bb0	(float) 29.14
 #define	B0	(float) 30.87
 #define	C1	(float) 32.70
@@ -58,7 +67,7 @@ typedef struct {
 #define	Gb2	(float) 92.50
 #define	G2	(float) 98.00
 #define	Ab2	(float) 103.83
-#define	LA2	(float) 110.00
+#define	A2	(float) 110.00
 #define	Bb2	(float) 116.54
 #define	B2	(float) 123.47
 #define	C3	(float) 130.81
@@ -70,7 +79,7 @@ typedef struct {
 #define	Gb3	(float) 185.00
 #define	G3	(float) 196.00
 #define	Ab3	(float) 207.65
-#define	LA3	(float) 220.00
+#define	A3	(float) 220.00
 #define	Bb3	(float) 233.08
 #define	B3	(float) 246.94
 #define	C4	(float) 261.63
@@ -82,7 +91,7 @@ typedef struct {
 #define	Gb4	(float) 369.99
 #define	G4	(float) 392.00
 #define	Ab4	(float) 415.30
-#define	LA4	(float) 440.00
+#define	A4	(float) 440.00
 #define	Bb4	(float) 466.16
 #define	B4	(float) 493.88
 #define	C5	(float) 523.25
@@ -94,7 +103,7 @@ typedef struct {
 #define	Gb5	(float) 739.99
 #define	G5	(float) 783.99
 #define	Ab5	(float) 830.61
-#define	LA5	(float) 880.00
+#define	A5	(float) 880.00
 #define	Bb5	(float) 932.33
 #define	B5	(float) 987.77
 #define	C6	(float) 1046.50
@@ -106,7 +115,7 @@ typedef struct {
 #define	Gb6	(float) 1479.98
 #define	G6	(float) 1567.98
 #define	Ab6	(float) 1661.22
-#define	LA6	(float) 1760.00
+#define	A6	(float) 1760.00
 #define	Bb6	(float) 1864.66
 #define	B6	(float) 1975.53
 #define	C7	(float) 2093.00
@@ -118,7 +127,7 @@ typedef struct {
 #define	Gb7	(float) 2959.96
 #define	G7	(float) 3135.96
 #define	Ab7	(float) 3322.44
-#define	LA7	(float) 3520.01
+#define	A7	(float) 3520.01
 #define	Bb7	(float) 3729.31
 #define	B7	(float) 3951.07
 #define	C8	(float) 4186.01

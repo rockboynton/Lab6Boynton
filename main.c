@@ -25,168 +25,168 @@
 // 3 = LED tests
 // 4 = USART tests
 // 5 = Speaker tests
-
-#define DEBUG 0
+#define DEBUG 5
 
 // User input buffer
 #define BUFFER_SIZE 30
 
 // Initialize variables to be used 
 char buffer[BUFFER_SIZE+1];
-TONE SONG[] = { // Imperial March
+Tone SONG[] = { // Imperial March
 	// {NOTE, DURATION}
 	{A3, Q}, 
-	{C0, 1+Q), // C0 is inaudible, acts as a delay
-    {A3,Q),
-    {C0, 1+Q),
-    {A3,Q),
-    {C0, 1+Q),
-    {F3,E+S),
-    {C0, 1+E+S),
-    {C4,S),
-    {C0, 1+S),
+	{C0, 1+Q}, // C0 is inaudible, acts as a delay
+    {A3,Q},
+    {C0, 1+Q},
+    {A3,Q},
+    {C0, 1+Q},
+    {F3,E+S},
+    {C0, 1+E+S},
+    {C4,S},
+    {C0, 1+S},
     
-    {A3,Q),
-    {C0, 1+Q),
-    {F3,E+S),
-    {C0, 1+E+S),
-    {C4,S),
-    {C0, 1+S),
-    {A3,H),
-    {C0, 1+H),
+    {A3,Q},
+    {C0, 1+Q},
+    {F3,E+S},
+    {C0, 1+E+S},
+    {C4,S},
+    {C0, 1+S},
+    {A3,H},
+    {C0, 1+H},
     
-    {E4,Q), 
-    {C0, 1+Q), 
-    {E4,Q),
-    {C0, 1+Q),
-    {E4,Q),
-    {C0, 1+Q),
-    {F4,E+S),
-    {C0, 1+E+S),
-    {C4,S),
-    {C0, 1+S),
+    {E4,Q}, 
+    {C0, 1+Q}, 
+    {E4,Q},
+    {C0, 1+Q},
+    {E4,Q},
+    {C0, 1+Q},
+    {F4,E+S},
+    {C0, 1+E+S},
+    {C4,S},
+    {C0, 1+S},
     
-    {Ab3,Q),
-    {C0, 1+Q),
-    {F3,E+S),
-    {C0, 1+E+S),
-    {C4,S),
-    {C0, 1+S),
-    {A3,H),
-    {C0, 1+H),
+    {Ab3,Q},
+    {C0, 1+Q},
+    {F3,E+S},
+    {C0, 1+E+S},
+    {C4,S},
+    {C0, 1+S},
+    {A3,H},
+    {C0, 1+H},
     
-    {LA4,Q),
-    {C0, 1+Q),
-    {A3,E+S),
-    {C0, 1+E+S),
-    {A3,S),
-    {C0, 1+S),
-    {LA4,Q),
-    {C0, 1+Q),
-    {Ab4,E+S),
-    {C0, 1+E+S),
-    {G4,S),
-    {C0, 1+S),
+    {A4,Q},
+    {C0, 1+Q},
+    {A3,E+S},
+    {C0, 1+E+S},
+    {A3,S},
+    {C0, 1+S},
+    {A4,Q},
+    {C0, 1+Q},
+    {Ab4,E+S},
+    {C0, 1+E+S},
+    {G4,S},
+    {C0, 1+S},
     
-    {Gb4,S),
-    {C0, 1+S),
-    {E4,S),
-    {C0, 1+S),
-    {F4,E),
-    {C0, 1+E),
-    {C0, 1+E),//PAUSE
-    {Bb3,E),
-    {C0, 1+E),
-    {Eb4,Q),
-    {C0, 1+Q),
-    {D4,E+S),
-    {C0, 1+E+S),
-    {Db4,S),
-    {C0, 1+S),
+    {Gb4,S},
+    {C0, 1+S},
+    {E4,S},
+    {C0, 1+S},
+    {F4,E},
+    {C0, 1+E},
+    {C0, 1+E},//PAUSE
+    {Bb3,E},
+    {C0, 1+E},
+    {Eb4,Q},
+    {C0, 1+Q},
+    {D4,E+S},
+    {C0, 1+E+S},
+    {Db4,S},
+    {C0, 1+S},
     
-    {C4,S),
-    {C0, 1+S),
-    {B3,S),
-    {C0, 1+S),
-    {C4,E),
-    {C0, 1+E),
-    {C0, 1+E),//PAUSE QUASI FINE RIGA
-    {F3,E),
-    {C0, 1+E),
-    {Ab3,Q),
-    {C0, 1+Q),
-    {F3,E+S),
-    {C0, 1+E+S),
-    {A3,S),
-    {C0, 1+S),
+    {C4,S},
+    {C0, 1+S},
+    {B3,S},
+    {C0, 1+S},
+    {C4,E},
+    {C0, 1+E},
+    {C0, 1+E},//PAUSE QUASI FINE RIGA
+    {F3,E},
+    {C0, 1+E},
+    {Ab3,Q},
+    {C0, 1+Q},
+    {F3,E+S},
+    {C0, 1+E+S},
+    {A3,S},
+    {C0, 1+S},
     
-    {C4,Q),
-    {C0, 1+Q),
-    {A3,E+S),
-    {C0, 1+E+S),
-    {C4,S),
-    {C0, 1+S),
-    {E4,H),
-    {C0, 1+H),
+    {C4,Q},
+    {C0, 1+Q},
+    {A3,E+S},
+    {C0, 1+E+S},
+    {C4,S},
+    {C0, 1+S},
+    {E4,H},
+    {C0, 1+H},
     
-    {LA4,Q),
-    {C0, 1+Q),
-    {A3,E+S),
-    {C0, 1+E+S),
-    {A3,S),
-    {C0, 1+S),
-    {LA4,Q),
-    {C0, 1+Q),
-    {Ab4,E+S),
-    {C0, 1+E+S),
-    {G4,S),
-    {C0, 1+S),
+    {A4,Q},
+    {C0, 1+Q},
+    {A3,E+S},
+    {C0, 1+E+S},
+    {A3,S},
+    {C0, 1+S},
+    {A4,Q},
+    {C0, 1+Q},
+    {Ab4,E+S},
+    {C0, 1+E+S},
+    {G4,S},
+    {C0, 1+S},
     
-    {Gb4,S),
-    {C0, 1+S),
-    {E4,S),
-    {C0, 1+S),
-    {F4,E),
-    {C0, 1+E),
-    {C0, 1+E),//PAUSE
-    {Bb3,E),
-    {C0, 1+E),
-    {Eb4,Q),
-    {C0, 1+Q),
-    {D4,E+S),
-    {C0, 1+E+S),
-    {Db4,S),
-    {C0, 1+S),
+    {Gb4,S},
+    {C0, 1+S},
+    {E4,S},
+    {C0, 1+S},
+    {F4,E},
+    {C0, 1+E},
+    {C0, 1+E},//PAUSE
+    {Bb3,E},
+    {C0, 1+E},
+    {Eb4,Q},
+    {C0, 1+Q},
+    {D4,E+S},
+    {C0, 1+E+S},
+    {Db4,S},
+    {C0, 1+S},
     
-    {C4,S),
-    {C0, 1+S),
-    {B3,S),
-    {C0, 1+S),
-    {C4,E),
-    {C0, 1+E),
-    {C0, 1+E),//PAUSE QUASI FINE RIGA
-    {F3,E),
-    {C0, 1+E),
-    {Ab3,Q),
-    {C0, 1+Q),
-    {F3,E+S),
-    {C0, 1+E+S),
-    {C4,S),
-    {C0, 1+S),
+    {C4,S},
+    {C0, 1+S},
+    {B3,S},
+    {C0, 1+S},
+    {C4,E},
+    {C0, 1+E},
+    {C0, 1+E},//PAUSE QUASI FINE RIGA
+    {F3,E},
+    {C0, 1+E},
+    {Ab3,Q},
+    {C0, 1+Q},
+    {F3,E+S},
+    {C0, 1+E+S},
+    {C4,S},
+    {C0, 1+S},
     
-    {A3,Q),
-    {C0, 1+Q),
-    {F3,E+S),
-    {C0, 1+E+S),
-    {C4,S),
-    {C0, 1+S),
-    {A3,H),
-    {C0, 1+H),
+    {A3,Q},
+    {C0, 1+Q},
+    {F3,E+S},
+    {C0, 1+E+S},
+    {C4,S},
+    {C0, 1+S},
+    {A3,H},
+    {C0, 1+H},
     
-    {C0, 2*H),
-}
+    {C0, 2*H},
+};
 
 // File scope helper methods
+static void play_song(Tone song[]);
 
 
 // main
@@ -257,10 +257,10 @@ int main() {
 	//-----------------------------------------------------------
 
 	// --------------------- SPEAKER TEST CODE -------------------
-	if (DEBUG == 4) {
+	if (DEBUG == 5) {
 		char entry[20];
 			while (1) {
-				// TODO
+				play_song(&SONG);
 			}
 	}
 	//-----------------------------------------------------------
@@ -283,4 +283,6 @@ static void print_help_screen() { // TODO
 			"Help (Command 'h'):         Prints this interface\n\n");
 }
 
+static void play_song(Tone * song[]) {
 
+}
