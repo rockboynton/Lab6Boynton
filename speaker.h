@@ -10,6 +10,8 @@
 
 // TIM3_CH1 pin assignmenr for GPIOB
 #define PB4 4
+#define TIM3_BASE (volatile uint32_t*) 0x40000400
+#define CLK_SPEED 16000000
 
 /**
  * Initialize the Speaker GPIO port and peripheral clocks.
@@ -20,15 +22,8 @@ void play_tone(Tone * tone);
 
 typedef struct {
 	float note;
-    uint8_t duration;
+    uint16_t duration;
 } Tone;
-
-typedef struct {
-    uint32_t CR1;
-    uint32_t CR2;
-    SMCR;
-    DIER; // TODO
-} TIMER;
 
 
 // The following defines are from this instructable: 

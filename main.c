@@ -284,5 +284,7 @@ static void print_help_screen() { // TODO
 }
 
 static void play_song(Tone * song[]) {
-
+	for (int i = 0; i < sizeof(song); i++) {
+		
+	}
 }
