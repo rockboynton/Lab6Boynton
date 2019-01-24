@@ -260,7 +260,7 @@ int main() {
 	if (DEBUG == 5) {
 		char entry[20];
 			while (1) {
-				play_song(&SONG);
+				play_song(SONG);
 			}
 	}
 	//-----------------------------------------------------------
@@ -283,8 +283,9 @@ static void print_help_screen() { // TODO
 			"Help (Command 'h'):         Prints this interface\n\n");
 }
 
-static void play_song(Tone * song[]) {
-	for (int i = 0; i < sizeof(song); i++) {
-		
+static void play_song(Tone song[]) {
+    int length = sizeof(song)/sizeof(song[0]);
+	for (int i = 0; i < length; i++) {
+		play_tone(song[i]);
 	}
 }

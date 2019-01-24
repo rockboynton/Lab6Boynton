@@ -26,14 +26,6 @@ void speaker_init() {
     // Configure GPIOB pin 4 for alternate function
     GPIOB->MODER |= ALTERNATE_FUNCTION << PB4;
     // Configure clock source – default (reset) is to use processor clock
-    
-	// Set half-period count in TIM3_ARR and TIM3_CCR1
-	
-    // Set output mode to “toggle on match” in TIM3_CCMR1
-	
-    // Enable output in TIM3_CCER
-	
-    // Enable counter in TIM3_CR1
 }
 
 void play_tone(Tone* tone) {

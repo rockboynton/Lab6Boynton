@@ -18,6 +18,10 @@
  */
 void speaker_init();
 
+/**
+ * Plays a tone on the speaker
+ * 
+*/
 void play_tone(Tone * tone);
 
 typedef struct {
