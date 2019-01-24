@@ -187,7 +187,7 @@ Tone SONG[] = { // Imperial March
 
 // File scope helper methods
 static void print_help_screen();
-static void play_song(Tone song[]);
+static void play_song(Tone song[], int length);
 
 
 // main
@@ -261,7 +261,9 @@ int main() {
 	if (DEBUG == 5) {
 		char entry[20];
 			while (1) {
-				play_song(SONG);
+//				play_song(SONG, (sizeof(SONG) / sizeof(SONG[0])));
+				Tone sound = {A4, H};
+				play_tone(&sound);
 			}
 	}
 	//-----------------------------------------------------------
@@ -284,8 +286,7 @@ static void print_help_screen() { // TODO
 			"Help (Command 'h'):         Prints this interface\n\n");
 }
 
-static void play_song(Tone song[]) {
-    int length = sizeof(song) / sizeof(song[0]);
+static void play_song(Tone song[], int length) {
 	for (int i = 0; i < length; i++) {
 		play_tone(&(song[i]));
 	}

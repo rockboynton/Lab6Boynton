@@ -11,7 +11,7 @@
 // TIM3_CH1 pin assignmenr for GPIOB
 #define PB4 4
 #define TIM3_BASE (volatile uint32_t*) 0x40000400
-#define CLK_SPEED 16000000
+#define CLK_SPEED 16000000L
 
 typedef struct {
 	float note;
