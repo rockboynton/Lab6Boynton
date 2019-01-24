@@ -13,6 +13,11 @@
 #define TIM3_BASE (volatile uint32_t*) 0x40000400
 #define CLK_SPEED 16000000
 
+typedef struct {
+	float note;
+    uint16_t duration;
+} Tone;
+
 /**
  * Initialize the Speaker GPIO port and peripheral clocks.
  */
@@ -24,10 +29,7 @@ void speaker_init();
 */
 void play_tone(Tone * tone);
 
-typedef struct {
-	float note;
-    uint16_t duration;
-} Tone;
+
 
 
 // The following defines are from this instructable: 

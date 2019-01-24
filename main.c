@@ -186,6 +186,7 @@ Tone SONG[] = { // Imperial March
 };
 
 // File scope helper methods
+static void print_help_screen();
 static void play_song(Tone song[]);
 
 
@@ -284,8 +285,8 @@ static void print_help_screen() { // TODO
 }
 
 static void play_song(Tone song[]) {
-    int length = sizeof(song)/sizeof(song[0]);
+    int length = sizeof(song) / sizeof(song[0]);
 	for (int i = 0; i < length; i++) {
-		play_tone(song[i]);
+		play_tone(&(song[i]));
 	}
 }
