@@ -54,6 +54,9 @@ typedef struct {
 	uint32_t IDR;
 	uint32_t ODR;
 	uint32_t BSRR;
+	uint32_t LCKR;
+	uint32_t AFRL;
+	uint32_t AFRH;
 } GPIO;
 
 // Analog to Digital Converter

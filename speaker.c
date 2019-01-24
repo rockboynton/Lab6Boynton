@@ -24,7 +24,11 @@ void speaker_init() {
     // Enable TIM3 in RCC_APB1ENR
 	*(RCC_APB1ENR) |= (1 << TIM3_EN);
     // Configure GPIOB pin 4 for alternate function
-    GPIOB->MODER |= ALTERNATE_FUNCTION << PB4;
+    GPIOB->MODER &= ~(0x00000300); // Clear mode bits for pin 4
+    GPIOB->MODER |= (ALTERNATE_FUNCTION << 8); // Set pin 4 to alternate function mode
+    GPIOB->AFRL &= ~(0x00010000); // Clear alternate function bits for pin 4
+    GPIOB->AFRL |= (0x2 << 16);
+    TIM3->EGR |= 1; // Propogate new values from shadow registers
     // Configure clock source – default (reset) is to use processor clock
 }
 
