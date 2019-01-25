@@ -39,7 +39,7 @@ void play_tone(Tone* tone) {
     TIM3->ARR = ticks;
     TIM3->CCR1 = ticks;
 
-    // Set output mode to â€œtoggle on matchâ€� in TIM3_CCMR1
+    // Set output mode to â€œtoggle on match in TIM3_CCMR1
     TIM3->CCMR1 = (0b011 << 4); // OC1M=011 - toggle on match
 
     // Enable output in TIM3_CCER

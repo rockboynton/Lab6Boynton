@@ -4,7 +4,7 @@
  * Plays a song using piezo speaker on MSOE dev board.
  * 
  * The following menu options are implemented:
- * 				
+ * 		Play "Imperial March"	
  */
 #include <stdio.h>
 #include <stdlib.h>
