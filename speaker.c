@@ -29,16 +29,17 @@ void speaker_init() {
     GPIOB->AFRL &= ~(0x00010000); // Clear alternate function bits for pin 4
     GPIOB->AFRL |= (0x2 << 16);
     TIM3->EGR |= 1; // Propogate new values from shadow registers
-    // Configure clock source – default (reset) is to use processor clock
+    // Configure clock source â€“ default (reset) is to use processor clock
 }
 
 void play_tone(Tone* tone) {
 	// Set half-period count in TIM3_ARR and TIM3_CCR1
-    uint16_t ticks = (uint16_t) (CLK_SPEED *  (1 / (*tone).note)) / 2;
+    uint32_t ticks = (uint32_t) (CLK_SPEED *  (1 / (*tone).note)) / 2.0;
+    // uint32_t ticks = (uint16_t) (CLK_SPEED/2) / (*tone).note)) / 2.0;
     TIM3->ARR = ticks;
     TIM3->CCR1 = ticks;
 
-    // Set output mode to “toggle on match” in TIM3_CCMR1
+    // Set output mode to â€œtoggle on matchâ€� in TIM3_CCMR1
     TIM3->CCMR1 = (0b011 << 4); // OC1M=011 - toggle on match
 
     // Enable output in TIM3_CCER
@@ -51,4 +52,6 @@ void play_tone(Tone* tone) {
 
     // Disable counter in TIM3_CR1 to end playing tone
     TIM3->CR1 = 0; // CEN = 1
+
+    // TIM3->EGR |= 1; // Propogate new values from shadow registers
 }

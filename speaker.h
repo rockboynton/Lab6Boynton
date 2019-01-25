@@ -35,7 +35,7 @@ void play_tone(Tone * tone);
 // The following defines are from this instructable: 
 // https://www.instructables.com/id/How-to-easily-play-music-with-buzzer-on-arduino-Th/
 // NB: ALL NOTES DEFINED WITH STANDARD ENGLISH NAMES
-#define	C0  (float) 16.35
+#define	C0  (float) 1000000
 #define	Db0	(float) 17.32
 #define	D0	(float) 18.35
 #define	Eb0	(float) 19.45
